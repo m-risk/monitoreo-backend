@@ -1,5 +1,6 @@
 package com.mrisk.monitoreo.application.rule.service;
 
+import java.util.List;
 import java.util.Objects;
 
 import com.mrisk.monitoreo.application.exception.DataNotFoundException;
@@ -20,6 +21,14 @@ public class ParameterService {
             return objParameter;
         }
         throw new DataNotFoundException(DATA_NOT_FOUND);
+    }
+
+    public List<Parameter> findParametersByRequestsFilter(Integer compId, Integer csubId, String parameterName) {
+        List<Parameter> listParameters = repository.findParametersByRequestsFilter(compId, csubId, parameterName);
+        if (listParameters.isEmpty()) {
+            throw new DataNotFoundException(DATA_NOT_FOUND);
+        }
+        return listParameters;
     }
 
 }
