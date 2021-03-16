@@ -1,9 +1,9 @@
-package com.mrisk.monitoreo.application.rule.service;
+package com.mrisk.monitoreo.application.service.rule;
 
 import java.util.List;
 
-import com.mrisk.monitoreo.application.rule.repository.RuleRepository;
-import com.mrisk.monitoreo.rule.domain.Rule;
+import com.mrisk.monitoreo.application.repository.rule.RuleRepository;
+import com.mrisk.monitoreo.domain.rule.Rule;
 
 import lombok.RequiredArgsConstructor;
 

@@ -1,4 +1,4 @@
-package com.mrisk.monitoreo.rule.domain;
+package com.mrisk.monitoreo.domain.rule;
 
 import java.util.Calendar;
 

@@ -4,10 +4,10 @@ package com.mrisk.monitoreo.infrastructure.point.config.spring;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.mrisk.monitoreo.application.point.repository.PointRepository;
-import com.mrisk.monitoreo.application.point.repository.StorageRepository;
-import com.mrisk.monitoreo.application.point.service.PointService;
-import com.mrisk.monitoreo.application.point.service.StorageService;
+import com.mrisk.monitoreo.application.repository.point.PointRepository;
+import com.mrisk.monitoreo.application.repository.point.StorageRepository;
+import com.mrisk.monitoreo.application.service.point.PointService;
+import com.mrisk.monitoreo.application.service.point.StorageService;
 
 @Configuration
 public class SpringBootServiceConfig {

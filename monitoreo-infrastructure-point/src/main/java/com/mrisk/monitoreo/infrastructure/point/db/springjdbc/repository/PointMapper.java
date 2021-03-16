@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.mrisk.monitoreo.point.domain.Point;
+import com.mrisk.monitoreo.domain.point.Point;
 
 
 public class PointMapper implements RowMapper<Point> {

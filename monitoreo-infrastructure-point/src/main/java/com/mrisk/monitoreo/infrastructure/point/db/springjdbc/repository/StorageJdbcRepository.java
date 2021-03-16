@@ -15,8 +15,8 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Service;
 
-import com.mrisk.monitoreo.application.point.repository.StorageRepository;
-import com.mrisk.monitoreo.point.domain.Storage;
+import com.mrisk.monitoreo.application.repository.point.StorageRepository;
+import com.mrisk.monitoreo.domain.point.Storage;
 
 import lombok.RequiredArgsConstructor;
 

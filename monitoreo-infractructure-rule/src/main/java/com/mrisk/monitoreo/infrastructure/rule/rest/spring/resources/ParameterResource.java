@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mrisk.monitoreo.application.rule.service.ParameterService;
+import com.mrisk.monitoreo.application.service.rule.ParameterService;
 import com.mrisk.monitoreo.infrastructure.rule.rest.spring.dto.ParameterDto;
 import com.mrisk.monitoreo.infrastructure.rule.rest.spring.mapper.Converter;
 

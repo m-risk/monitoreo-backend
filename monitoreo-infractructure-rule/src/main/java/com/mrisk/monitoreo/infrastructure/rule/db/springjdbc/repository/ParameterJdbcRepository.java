@@ -10,8 +10,8 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import com.mrisk.monitoreo.application.rule.repository.ParameterRepository;
-import com.mrisk.monitoreo.rule.domain.Parameter;
+import com.mrisk.monitoreo.application.repository.rule.ParameterRepository;
+import com.mrisk.monitoreo.domain.rule.Parameter;
 
 import lombok.RequiredArgsConstructor;
 

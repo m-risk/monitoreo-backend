@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import com.mrisk.monitoreo.application.rule.repository.RuleRepository;
-import com.mrisk.monitoreo.rule.domain.Rule;
+import com.mrisk.monitoreo.application.repository.rule.RuleRepository;
+import com.mrisk.monitoreo.domain.rule.Rule;
 
 import lombok.RequiredArgsConstructor;
 

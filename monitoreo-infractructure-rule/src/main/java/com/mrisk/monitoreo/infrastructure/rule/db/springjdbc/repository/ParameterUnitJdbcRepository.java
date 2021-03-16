@@ -7,8 +7,8 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import com.mrisk.monitoreo.application.rule.repository.ParameterUnitRepository;
-import com.mrisk.monitoreo.rule.domain.ParameterUnit;
+import com.mrisk.monitoreo.application.repository.rule.ParameterUnitRepository;
+import com.mrisk.monitoreo.domain.rule.ParameterUnit;
 
 @Service
 public class ParameterUnitJdbcRepository implements ParameterUnitRepository {

@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.mrisk.monitoreo.rule.domain.Parameter;
+import com.mrisk.monitoreo.domain.rule.Parameter;
 
 public class ParameterMapper implements RowMapper<Parameter> {
 

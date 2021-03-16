@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mrisk.monitoreo.application.rule.service.ParameterUnitService;
+import com.mrisk.monitoreo.application.service.rule.ParameterUnitService;
 import com.mrisk.monitoreo.infrastructure.rule.rest.spring.dto.ParameterUnitDTO;
 import com.mrisk.monitoreo.infrastructure.rule.rest.spring.mapper.Converter;
 

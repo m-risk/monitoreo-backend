@@ -1,8 +1,8 @@
-package com.mrisk.monitoreo.application.rule.repository;
+package com.mrisk.monitoreo.application.repository.rule;
 
 import java.util.List;
 
-import com.mrisk.monitoreo.rule.domain.Parameter;
+import com.mrisk.monitoreo.domain.rule.Parameter;
 
 public interface ParameterRepository  {
 

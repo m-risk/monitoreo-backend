@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mrisk.monitoreo.application.rule.service.ComponentService;
+import com.mrisk.monitoreo.application.service.rule.ComponentService;
 import com.mrisk.monitoreo.infrastructure.rule.rest.spring.dto.ComponentDTO;
 import com.mrisk.monitoreo.infrastructure.rule.rest.spring.mapper.Converter;
 

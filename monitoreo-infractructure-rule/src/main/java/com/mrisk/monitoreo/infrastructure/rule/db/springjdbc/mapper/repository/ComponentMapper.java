@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.mrisk.monitoreo.rule.domain.Component;
+import com.mrisk.monitoreo.domain.rule.Component;
 
 public class ComponentMapper implements RowMapper<Component> {
 

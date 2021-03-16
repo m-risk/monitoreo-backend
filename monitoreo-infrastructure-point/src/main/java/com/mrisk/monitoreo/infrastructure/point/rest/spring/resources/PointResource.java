@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mrisk.monitoreo.application.point.service.PointService;
+import com.mrisk.monitoreo.application.service.point.PointService;
 import com.mrisk.monitoreo.infrastructure.point.rest.spring.dto.PointDto;
 import com.mrisk.monitoreo.infrastructure.point.rest.spring.mapper.PointMapper;
 

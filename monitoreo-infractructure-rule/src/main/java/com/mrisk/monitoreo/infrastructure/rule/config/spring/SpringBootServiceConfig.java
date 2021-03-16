@@ -3,14 +3,14 @@ package com.mrisk.monitoreo.infrastructure.rule.config.spring;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.mrisk.monitoreo.application.rule.repository.ComponentRepository;
-import com.mrisk.monitoreo.application.rule.repository.ParameterRepository;
-import com.mrisk.monitoreo.application.rule.repository.ParameterUnitRepository;
-import com.mrisk.monitoreo.application.rule.repository.RuleRepository;
-import com.mrisk.monitoreo.application.rule.service.ComponentService;
-import com.mrisk.monitoreo.application.rule.service.ParameterService;
-import com.mrisk.monitoreo.application.rule.service.ParameterUnitService;
-import com.mrisk.monitoreo.application.rule.service.RuleService;
+import com.mrisk.monitoreo.application.repository.rule.ComponentRepository;
+import com.mrisk.monitoreo.application.repository.rule.ParameterRepository;
+import com.mrisk.monitoreo.application.repository.rule.ParameterUnitRepository;
+import com.mrisk.monitoreo.application.repository.rule.RuleRepository;
+import com.mrisk.monitoreo.application.service.rule.ComponentService;
+import com.mrisk.monitoreo.application.service.rule.ParameterService;
+import com.mrisk.monitoreo.application.service.rule.ParameterUnitService;
+import com.mrisk.monitoreo.application.service.rule.RuleService;
 
 @Configuration
 public class SpringBootServiceConfig {

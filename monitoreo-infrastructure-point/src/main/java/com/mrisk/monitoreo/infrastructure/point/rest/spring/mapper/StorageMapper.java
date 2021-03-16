@@ -2,8 +2,8 @@ package com.mrisk.monitoreo.infrastructure.point.rest.spring.mapper;
 
 import org.mapstruct.Mapper;
 
+import com.mrisk.monitoreo.domain.point.Storage;
 import com.mrisk.monitoreo.infrastructure.point.rest.spring.dto.StorageDto;
-import com.mrisk.monitoreo.point.domain.Storage;
 
 @Mapper(componentModel = "spring")
 public interface StorageMapper { 

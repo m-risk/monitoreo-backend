@@ -11,8 +11,8 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Service;
 
-import com.mrisk.monitoreo.application.point.repository.PointRepository;
-import com.mrisk.monitoreo.point.domain.Point;
+import com.mrisk.monitoreo.application.repository.point.PointRepository;
+import com.mrisk.monitoreo.domain.point.Point;
 
 import lombok.RequiredArgsConstructor;
 

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mrisk.monitoreo.application.point.service.StorageService;
+import com.mrisk.monitoreo.application.service.point.StorageService;
 import com.mrisk.monitoreo.infrastructure.point.rest.spring.dto.DocumentDto;
 import com.mrisk.monitoreo.infrastructure.point.rest.spring.dto.StorageDto;
 import com.mrisk.monitoreo.infrastructure.point.rest.spring.mapper.StorageMapper;

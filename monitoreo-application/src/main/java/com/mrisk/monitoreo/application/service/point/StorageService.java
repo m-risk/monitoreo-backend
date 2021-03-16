@@ -1,9 +1,9 @@
-package com.mrisk.monitoreo.application.point.service;
+package com.mrisk.monitoreo.application.service.point;
 
 import java.util.List;
 
-import com.mrisk.monitoreo.application.point.repository.StorageRepository;
-import com.mrisk.monitoreo.point.domain.Storage;
+import com.mrisk.monitoreo.application.repository.point.StorageRepository;
+import com.mrisk.monitoreo.domain.point.Storage;
 
 import lombok.RequiredArgsConstructor;
 

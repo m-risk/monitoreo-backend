@@ -1,4 +1,4 @@
-package com.mrisk.monitoreo.point.domain;
+package com.mrisk.monitoreo.domain.point;
 
 import java.util.Calendar;
 

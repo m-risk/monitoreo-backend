@@ -1,8 +1,8 @@
-package com.mrisk.monitoreo.application.point.repository;
+package com.mrisk.monitoreo.application.repository.point;
 
 import java.util.List;
 
-import com.mrisk.monitoreo.point.domain.Storage;
+import com.mrisk.monitoreo.domain.point.Storage;
 
 public interface StorageRepository {
 	

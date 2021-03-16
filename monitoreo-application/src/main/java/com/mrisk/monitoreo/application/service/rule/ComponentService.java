@@ -1,11 +1,11 @@
-package com.mrisk.monitoreo.application.rule.service;
+package com.mrisk.monitoreo.application.service.rule;
 
 import java.util.List;
 import java.util.Objects;
 
 import com.mrisk.monitoreo.application.exception.DataNotFoundException;
-import com.mrisk.monitoreo.application.rule.repository.ComponentRepository;
-import com.mrisk.monitoreo.rule.domain.Component;
+import com.mrisk.monitoreo.application.repository.rule.ComponentRepository;
+import com.mrisk.monitoreo.domain.rule.Component;
 
 import lombok.RequiredArgsConstructor;
 
