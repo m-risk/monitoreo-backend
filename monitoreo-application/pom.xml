@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.mrisk</groupId>
+    <artifactId>monitoreo-application</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>Spring Boot Blank Project</name>
+	<properties>
+	  <java.version>11</java.version>
+	  <maven.compiler.source>${java.version}</maven.compiler.source>
+	  <maven.compiler.target>${java.version}</maven.compiler.target>
+	  <mapstruct.version>1.2.0.Final</mapstruct.version>
+	  <monitoreo.domain.version>0.0.1-SNAPSHOT</monitoreo.domain.version>
+  </properties>
+  <dependencies>
+  	<dependency>
+        <groupId>com.mrisk</groupId>
+        <artifactId>monitoreo-domain</artifactId>
+        <version>${monitoreo.domain.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
+	<dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-dependencies</artifactId>
+			<version>2.4.3</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
+</project>
