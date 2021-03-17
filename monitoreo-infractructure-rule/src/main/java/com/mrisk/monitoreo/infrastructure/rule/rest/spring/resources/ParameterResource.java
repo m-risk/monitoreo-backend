@@ -37,7 +37,7 @@ public class ParameterResource {
         return new ResponseEntity<>((resource), HttpStatus.OK);
     }
 
-    @GetMapping("/parameters/")
+    @GetMapping("/parameters")
     public ResponseEntity<List<ParameterDto>> findParametersByRequestFilter(@RequestParam(required = false) Integer compId,
             @RequestParam(required = false) Integer csubId, @RequestParam(required = false) String name ) {
 

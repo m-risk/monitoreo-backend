@@ -13,18 +13,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class RuleDto extends RepresentationModel<RuleDto> {
-
-    private Integer normId;
-    private String name;
-    private Integer compId;
+public class SubComponentDTO extends RepresentationModel<SubComponentDTO>{
+    
     private Integer csubId;
-    private String detail;
+    private String name;
     private String description;
-
-    private Boolean legal;
-
-    private Integer ruleTypeId;
-
 
 }

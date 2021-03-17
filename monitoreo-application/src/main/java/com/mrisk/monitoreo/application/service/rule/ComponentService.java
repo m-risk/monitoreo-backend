@@ -24,9 +24,10 @@ public class ComponentService {
 
     public List<Component> findComponents() {
         List<Component> listComponent = repository.findComponents();
-        if (!listComponent.isEmpty()) {
-            return listComponent;
+        if (listComponent.isEmpty()) {
+            throw new DataNotFoundException(DATA_NOT_FOUND);
         }
-        throw new DataNotFoundException(DATA_NOT_FOUND);
+      
+        return listComponent;
     }
 }
