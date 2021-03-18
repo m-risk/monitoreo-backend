@@ -1,5 +1,8 @@
 package com.mrisk.monitoreo.infrastructure.rule.rest.spring.resources;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,24 +25,42 @@ public class ComponentResource {
 
     private final ComponentService componentService;
 
+    /**
+     * Metodo para encontrar un componente por id
+     * 
+     * @param id
+     * @return
+     */
     @GetMapping("/components/{id}")
     public ResponseEntity<EntityModel<ComponentDTO>> findComponentById(@PathVariable Integer id) {
 
-        ComponentDTO parameterDto = Converter.getMapper().map(componentService.findComponentById(id),
+        ComponentDTO componentDto = Converter.getMapper().map(componentService.findComponentById(id),
                 ComponentDTO.class);
 
-        EntityModel<ComponentDTO> resource = EntityModel.of(parameterDto);
+        EntityModel<ComponentDTO> resource = EntityModel.of(componentDto,
+                linkTo(methodOn(SubComponentResource.class).findAllSubComponentByComponentId(componentDto.getCompId()))
+                        .withRel("Subcomponents"));
 
         return new ResponseEntity<>((resource), HttpStatus.OK);
     }
 
+    /**
+     * Metodo para obtener todos los componentes
+     * 
+     * @return
+     */
     @GetMapping("/components")
-    public ResponseEntity<List<ComponentDTO>> findComponents() {
+    public ResponseEntity<List<EntityModel<ComponentDTO>>> findComponents() {
 
-        List<ComponentDTO> listParameters = componentService.findComponents().stream()
-                .map(c -> Converter.getMapper().map(c, ComponentDTO.class)).collect(Collectors.toList());
+        List<EntityModel<ComponentDTO>> listComponents = componentService.findComponents().stream()
+                .map(component -> EntityModel.of(Converter.getMapper().map(component, ComponentDTO.class),
+                        linkTo(methodOn(ComponentResource.class).findComponentById(component.getCompId()))
+                                .withSelfRel(),
+                        linkTo(methodOn(SubComponentResource.class)
+                                .findAllSubComponentByComponentId(component.getCompId())).withRel("Subcomponents")))
+                .collect(Collectors.toList());
 
-        return new ResponseEntity<>(listParameters, HttpStatus.OK);
+        return new ResponseEntity<>(listComponents, HttpStatus.OK);
     }
 
 }

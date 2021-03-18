@@ -3,10 +3,12 @@ package com.mrisk.monitoreo.infrastructure.rule.rest.spring.resources;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mrisk.monitoreo.application.service.rule.SubComponentService;
@@ -18,14 +20,40 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RestController
 public class SubComponentResource {
-    
+
     private final SubComponentService subComponentService;
-    
+
+    /**
+     * Metodo para obtener los un subcomponente de un componente
+     * 
+     * @param id
+     * @param csubid
+     * @return
+     */
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/components/{id}/subcomponents/{csubid}")
+    public ResponseEntity<EntityModel<SubComponentDTO>> findSubComponentById(@PathVariable Integer id,
+            @PathVariable Integer csubid) {
+
+        SubComponentDTO subComponent = Converter.getMapper()
+                .map(subComponentService.findSubCompByCompIdAndSubId(id, csubid), SubComponentDTO.class);
+        EntityModel<SubComponentDTO> entityResponse = EntityModel.of(subComponent);
+        return new ResponseEntity<>(entityResponse, HttpStatus.OK);
+    }
+
+    /**
+     * Metodo para obtener los subcomponentes por id de componente
+     * 
+     * @param id
+     * @return
+     */
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/components/{id}/subcomponents")
     public ResponseEntity<List<SubComponentDTO>> findAllSubComponentByComponentId(@PathVariable Integer id) {
 
         List<SubComponentDTO> listParameters = subComponentService.findAllSubComponentByComponentId(id).stream()
-                .map(c -> Converter.getMapper().map(c, SubComponentDTO.class)).collect(Collectors.toList());
+                .map(subcomponente -> Converter.getMapper().map(subcomponente, SubComponentDTO.class))
+                .collect(Collectors.toList());
 
         return new ResponseEntity<>(listParameters, HttpStatus.OK);
     }

@@ -14,7 +14,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class ParameterDto extends RepresentationModel<ParameterDto> {
-	private Long paraId;
+	private Integer paraId;
 	private String name;
 	private String symbol;
 	private String unit;

@@ -18,8 +18,9 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class SubComponentJdbcRepository implements SubComponentRepository {
 
-//    private static final String SELECT_COMP_BY_ID = "SELECT comp_id,name,description FROM component_sub where comp_id = ? and alive is true";
     private static final String SELECT_ALL_SUBCOMPONENT_BY_COMPONENT_ID = "SELECT csub_id,name,description FROM component_sub where comp_id = ? and alive is true";
+    private static final String SELECT_SINGLE_SUBCOMPONENT = "SELECT csub_id,name,description FROM component_sub where comp_id = ? and csub_id = ? and alive is true";
+
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -38,6 +39,20 @@ public class SubComponentJdbcRepository implements SubComponentRepository {
         } catch (EmptyResultDataAccessException noResult) {
 
             return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public SubComponent findSubCompByCompIdAndSubId(Integer compId, Integer csubid) {
+        String sql = SELECT_SINGLE_SUBCOMPONENT;
+        try {
+
+            return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<SubComponent>(SubComponent.class), compId,
+                    csubid);
+
+        } catch (EmptyResultDataAccessException noResult) {
+
+            return null;
         }
     }
 

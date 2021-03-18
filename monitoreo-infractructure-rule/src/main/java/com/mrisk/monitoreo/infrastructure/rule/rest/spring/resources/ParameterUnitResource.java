@@ -20,23 +20,17 @@ public class ParameterUnitResource {
 
 	private final ParameterUnitService parameterUnitService;
 
+	/**
+	 * 
+	 * @return
+	 */
 	@GetMapping("/parameters/unit")
 	public ResponseEntity<List<ParameterUnitDTO>> singleSelectRule() {
 
-
-//		EntityModel<ParameterDto> resource = EntityModel.of(parameterDto);
-
-//		addSelfLink(resource);
 		List<ParameterUnitDTO> parameterUnitList = parameterUnitService.getListParameterUnit().stream()
 				.map(x -> Converter.getMapper().map(x, ParameterUnitDTO.class)).collect(Collectors.toList());
 		return new ResponseEntity<>((parameterUnitList), HttpStatus.OK);
 	}
 
-//	private void addSelfLink(EntityModel<List<ParameterDto>> resource) {
-//
-//		Long id = resource.getContent().getId();
-//		resource.add(WebMvcLinkBuilder
-//				.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).singleSelectRule(id.intValue())).withSelfRel());
-//	}
 
 }

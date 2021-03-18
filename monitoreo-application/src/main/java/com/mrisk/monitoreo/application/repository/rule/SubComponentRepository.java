@@ -10,4 +10,6 @@ public interface SubComponentRepository {
 
     List<SubComponent> findAllSubComponentByComponentId(Integer compId);
 
+    SubComponent findSubCompByCompIdAndSubId(Integer id, Integer csubid);
+
 }
