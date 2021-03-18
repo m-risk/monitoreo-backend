@@ -1,9 +1,6 @@
 package com.mrisk.monitoreo.infrastructure.rule.rest.spring.dto;
 
-import org.springframework.hateoas.RepresentationModel;
-
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,8 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
-public class SubComponentDTO extends RepresentationModel<SubComponentDTO>{
+public class SubComponentDTO {
     
     private Integer csubId;
     private String name;

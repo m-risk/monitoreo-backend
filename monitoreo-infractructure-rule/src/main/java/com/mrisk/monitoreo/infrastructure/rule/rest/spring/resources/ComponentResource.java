@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import com.mrisk.monitoreo.application.service.rule.ComponentService;
 import com.mrisk.monitoreo.infrastructure.rule.rest.spring.dto.ComponentDTO;
 import com.mrisk.monitoreo.infrastructure.rule.rest.spring.mapper.Converter;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -31,7 +33,8 @@ public class ComponentResource {
      * @param id
      * @return
      */
-    @GetMapping("/components/{id}")
+    @ApiOperation(value = "Find component by id")
+    @GetMapping(value = "/components/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<EntityModel<ComponentDTO>> findComponentById(@PathVariable Integer id) {
 
         ComponentDTO componentDto = Converter.getMapper().map(componentService.findComponentById(id),
@@ -49,7 +52,8 @@ public class ComponentResource {
      * 
      * @return
      */
-    @GetMapping("/components")
+    @ApiOperation(value = "Find all components")
+    @GetMapping(value="/components",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<EntityModel<ComponentDTO>>> findComponents() {
 
         List<EntityModel<ComponentDTO>> listComponents = componentService.findComponents().stream()

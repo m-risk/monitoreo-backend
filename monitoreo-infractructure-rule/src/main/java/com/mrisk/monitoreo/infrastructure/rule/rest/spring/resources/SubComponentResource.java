@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import com.mrisk.monitoreo.application.service.rule.SubComponentService;
 import com.mrisk.monitoreo.infrastructure.rule.rest.spring.dto.SubComponentDTO;
 import com.mrisk.monitoreo.infrastructure.rule.rest.spring.mapper.Converter;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -31,7 +33,8 @@ public class SubComponentResource {
      * @return
      */
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/components/{id}/subcomponents/{csubid}")
+    @ApiOperation(value = "Find subcomponents by component ID and subcomponentId")
+    @GetMapping(value = "/components/{id}/subcomponents/{csubid}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<EntityModel<SubComponentDTO>> findSubComponentById(@PathVariable Integer id,
             @PathVariable Integer csubid) {
 
@@ -48,7 +51,8 @@ public class SubComponentResource {
      * @return
      */
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/components/{id}/subcomponents")
+    @ApiOperation(value = "Find subcomponents by component ID")
+    @GetMapping(value = "/components/{id}/subcomponents", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<SubComponentDTO>> findAllSubComponentByComponentId(@PathVariable Integer id) {
 
         List<SubComponentDTO> listParameters = subComponentService.findAllSubComponentByComponentId(id).stream()

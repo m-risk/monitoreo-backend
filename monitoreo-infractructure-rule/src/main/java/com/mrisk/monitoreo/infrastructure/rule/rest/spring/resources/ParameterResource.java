@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import com.mrisk.monitoreo.application.service.rule.ParameterService;
 import com.mrisk.monitoreo.infrastructure.rule.rest.spring.dto.ParameterDto;
 import com.mrisk.monitoreo.infrastructure.rule.rest.spring.mapper.Converter;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -27,11 +29,13 @@ public class ParameterResource {
     private final ParameterService parameterService;
 
     /**
-     * Metodo para obtener un parametro segun su id 
+     * Metodo para obtener un parametro segun su id
+     * 
      * @param id
      * @return
      */
-    @GetMapping("/parameters/{id}")
+    @ApiOperation(value = "Find parameter by ID")
+    @GetMapping(value = "/parameters/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<EntityModel<ParameterDto>> singleSelectRule(@PathVariable Integer id) {
 
         ParameterDto parameterDto = Converter.getMapper().map(parameterService.singleSelectParameter(id),
@@ -44,13 +48,16 @@ public class ParameterResource {
     }
 
     /**
-     * Metodo para filtrar parametros por id componente, subcomponete o nombre de parametro
+     * Metodo para filtrar parametros por id componente, subcomponete o nombre de
+     * parametro
+     * 
      * @param compId
      * @param csubId
      * @param name
      * @return
      */
-    @GetMapping("/parameters")
+    @ApiOperation(value = "Find parameters by filters ex compId, csubId, name ")
+    @GetMapping(value = "/parameters", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ParameterDto>> findParametersByRequestFilter(
             @RequestParam(required = false) Integer compId, @RequestParam(required = false) Integer csubId,
             @RequestParam(required = false) String name) {
