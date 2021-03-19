@@ -1,5 +1,6 @@
 package com.mrisk.monitoreo.infrastructure.rule.rest.spring.resources;
 
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,9 @@ import lombok.RequiredArgsConstructor;
 public class RuleResource {
 
     private final RuleService ruleService;
-
+    
+    
+ 
     /**
      * Metodo que permite crear una norma interna
      * @param ruleDTO
@@ -28,19 +31,14 @@ public class RuleResource {
      */
     @ApiOperation(value = "create internal rule")
     @PostMapping(value="/rules",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> saveRule(@RequestBody RuleDto ruleDTO) {
+    public ResponseEntity<EntityModel<RuleDto>> saveRule(@RequestBody RuleDto ruleDTO) {
 
         RuleDto ruleCreated = Converter.getMapper().map(ruleService.saveRule(Converter.getMapper().map(ruleDTO, Rule.class)),
                 RuleDto.class);
-//        EntityModel<RuleDto> resource = EntityModel.of(ruleCreated);
-//        addSelfLink(resource);
-        return new ResponseEntity<>(ruleCreated,HttpStatus.CREATED);
+        
+        EntityModel<RuleDto> resource = EntityModel.of(ruleCreated);
+        return new ResponseEntity<>(resource,HttpStatus.CREATED);
     }
     
-//    private void addSelfLink(EntityModel<RuleDto> resource) {
-//        
-//        Integer id = resource.getContent().getNormId();
-//        resource.add(WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).singleSelectPoint(id)).withSelfRel());
-//    }
 
 }

@@ -1,5 +1,8 @@
 package com.mrisk.monitoreo.infrastructure.rule.rest.spring.resources;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,13 +56,15 @@ public class SubComponentResource {
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Find subcomponents by component ID")
     @GetMapping(value = "/components/{id}/subcomponents", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<SubComponentDTO>> findAllSubComponentByComponentId(@PathVariable Integer id) {
+    public ResponseEntity<List<EntityModel<SubComponentDTO>>> findAllSubComponentByComponentId(@PathVariable Integer id) {
 
-        List<SubComponentDTO> listParameters = subComponentService.findAllSubComponentByComponentId(id).stream()
-                .map(subcomponente -> Converter.getMapper().map(subcomponente, SubComponentDTO.class))
+        List<EntityModel<SubComponentDTO>> listSubComponents = subComponentService.findAllSubComponentByComponentId(id).stream()
+                .map(subcomponent -> EntityModel.of(Converter.getMapper().map(subcomponent, SubComponentDTO.class),
+                        linkTo(methodOn(this.getClass()).findSubComponentById(id,subcomponent.getCsubId()))
+                                .withSelfRel()))
                 .collect(Collectors.toList());
 
-        return new ResponseEntity<>(listParameters, HttpStatus.OK);
+        return new ResponseEntity<>(listSubComponents, HttpStatus.OK);
     }
 
 }

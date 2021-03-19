@@ -58,12 +58,14 @@ public class ParameterResource {
      */
     @ApiOperation(value = "Find parameters by filters ex compId, csubId, name ")
     @GetMapping(value = "/parameters", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<ParameterDto>> findParametersByRequestFilter(
+    public ResponseEntity<List<EntityModel<ParameterDto>>> findParametersByRequestFilter(
             @RequestParam(required = false) Integer compId, @RequestParam(required = false) Integer csubId,
             @RequestParam(required = false) String name) {
 
-        List<ParameterDto> listParameters = parameterService.findParametersByRequestsFilter(compId, csubId, name)
-                .stream().map(parameter -> Converter.getMapper().map(parameter, ParameterDto.class))
+        List<EntityModel<ParameterDto>> listParameters = parameterService
+                .findParametersByRequestsFilter(compId, csubId, name).stream()
+                .map(parameter -> EntityModel.of(Converter.getMapper().map(parameter, ParameterDto.class),
+                        linkTo(methodOn(this.getClass()).singleSelectRule(parameter.getParaId())).withSelfRel()))
                 .collect(Collectors.toList());
 
         return new ResponseEntity<>(listParameters, HttpStatus.OK);
